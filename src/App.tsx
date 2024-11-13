@@ -15,25 +15,36 @@ import User from "./pages/user/User";
 import Product from "./pages/product/Product";
 import Login from "./pages/login/Login";
 import "./styles/global.scss"
+// import {
+//   QueryClient,
+//   QueryClientProvider,
+// } from "@tanstack/react-query";
+
+
+// const queryClient = new QueryClient();
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
+
 
 function App() {
 
-  const Layout = ()=>{
-    return(
+  const Layout = () => {
+    return (
       <div className="main">
-      <Navbar />
-      <div className="container">
-        <div className="menuContainer">
-          <Menu />
-        </div>
-        <div className="contentContainer">
-          {/* <QueryClientProvider client={queryClient}> */}
+        <Navbar />
+        <div className="container">
+          <div className="menuContainer">
+            <Menu />
+          </div>
+          <div className="contentContainer">
+            <QueryClientProvider client={queryClient}>
             <Outlet />
-          {/* </QueryClientProvider> */}
+            </QueryClientProvider>
+          </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
     )
   }
 
