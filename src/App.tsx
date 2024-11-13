@@ -2,8 +2,7 @@ import Home from "./pages/home/Home"
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Link,
+
   Outlet,
 } from "react-router-dom";
 import Users from "./pages/users/Users";
@@ -39,7 +38,7 @@ function App() {
           </div>
           <div className="contentContainer">
             <QueryClientProvider client={queryClient}>
-            <Outlet />
+              <Outlet />
             </QueryClientProvider>
           </div>
         </div>
